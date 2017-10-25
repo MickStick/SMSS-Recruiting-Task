@@ -1,0 +1,43 @@
+{
+  "name": "smss-recruiting-task",
+  "version": "0.1.0",
+  "description": " A Web Application I was assigned in order to showcase my skills for the postion for which I applied for at Smart Mobile Software Solutions",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MickStick/SMSS-Recruiting-Task.git"
+  },
+  "keywords": [
+    "Node",
+    "Angular",
+    "JavaScript",
+    "TypeScript",
+    "Task-Manager"
+  ],
+  "author": "Mikhail René Shaw",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MickStick/SMSS-Recruiting-Task/issues"
+  },
+  "homepage": "https://github.com/MickStick/SMSS-Recruiting-Task#readme",
+  "dependencies": {
+    "@types/jquery": "^3.2.13",
+    "body-parser": "^1.18.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "jsonwebtoken": "^8.0.1",
+    "mongoose": "^4.11.12",
+    "passport": "^0.4.0",
+    "passport-http-jwt-bearer": "^0.1.3",
+    "passport-jwt": "^3.0.0",
+    "sha256": "^0.2.0"
+  },
+  "devDependencies": {
+    "@angular/cli": "^1.4.9"
+  }
+}

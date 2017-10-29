@@ -35,7 +35,7 @@ app.use(pp.initialize()); //Passport Middleware
 app.use(pp.session()); //Passport Middleware
 require('./model/TokenConfig')(pp);
 app.use('/users', users);
-app.use('/tasks', users);
+app.use('/tasks', tasks);
 
 app.get('/', (req, res) => {
     res.send("Ntn nuh deh yah!!!");
@@ -46,6 +46,6 @@ app.get('*', (req, res) => {
 });
 
 
-app.listen(port, function() {
+app.listen(port, () => {
     console.log("Server is connected and listening to port: " + port);
 });

@@ -9,8 +9,8 @@ var UserPwd = require('../model/UserPwd');
 
 
 
-router.get('/', function(req, res, next) {
-    User.count({}, function(err, result) {
+router.get('/', (req, res, next) => {
+    User.count({}, (err, result) => {
         if (err) {
             res.send("Count Error: " + err);
         } else {
@@ -22,9 +22,9 @@ router.get('/', function(req, res, next) {
 });
 
 //Registration
-router.post('/register', function(req, res, next) {
+router.post('/register', (req, res, next) => {
     var count;
-    User.count({}, function(err, result) {
+    User.count({}, (err, result) => {
         if (err) {
             console.log(err);
         }
@@ -45,13 +45,13 @@ router.post('/register', function(req, res, next) {
             password: hex(req.body.pword)
         });
 
-        User.addUser(newUser, function(err, user) {
+        User.addUser(newUser, (err, user) => {
             if (err) {
                 res.json({ success: false, msg: "User Failed To Register", id: newUser.id });
                 console.log(err);
                 console.log("ID: " + newUser.id + "\nFisrt Name: " + newUser.fname + "\n User Count: " + count);
             } else {
-                UserPwd.addPwd(newPwd, function(err, pwd) {
+                UserPwd.addPwd(newPwd, (err, pwd) => {
                     if (err) {
                         res.json({ success: false, msg: "Password Failed To Save" });
                         console.log(err);
@@ -68,11 +68,11 @@ router.post('/register', function(req, res, next) {
 
 
 //Authentication
-router.post('/auth', function(req, res, next) {
+router.post('/auth', (req, res, next) => {
     var uname = req.body.uname;
     var pword = req.body.pword;
 
-    User.getUserByUname(uname, function(err, user) {
+    User.getUserByUname(uname, (err, user) => {
         if (err) {
             return res.json({
                 success: false,
@@ -87,7 +87,7 @@ router.post('/auth', function(req, res, next) {
                 });
             } else {
                 console.log("User ID: " + user.id);
-                UserPwd.getPwdById(user.id, function(err, pwd) {
+                UserPwd.getPwdById(user.id, (err, pwd) => {
                     if (err) {
                         return res.json({
                             success: false,
@@ -103,7 +103,7 @@ router.post('/auth', function(req, res, next) {
                         } else {
                             console.log("Password typed: " + hex(pword));
                             console.log("Password in DB: " + pwd.password)
-                            UserPwd.compPwd(pword, pwd.password, function(err, isMatch) {
+                            UserPwd.compPwd(pword, pwd.password, (err, isMatch) => {
                                 if (err) {
                                     return res.json({
                                         success: false,
@@ -140,7 +140,7 @@ router.post('/auth', function(req, res, next) {
 });
 
 //Profile
-router.get('/profile', pp.authenticate('jwt-bearer', { session: false }), function(req, res, next) {
+router.get('/profile', pp.authenticate('jwt-bearer', { session: false }), (req, res, next) => {
     res.json({ user: req.user });
     //res.send("User Profile");
 });

@@ -33,19 +33,19 @@ var UserSchema = mong.Schema({
 
 var User = module.exports = mong.model('User', UserSchema);
 
-module.exports.getUserById = function(id, callback) {
+module.exports.getUserById = (id, callback) => {
     User.findOne({ id: id }, callback);
 }
 
-module.exports.getUserByObjectId = function(id, callback) {
+module.exports.getUserByObjectId = (id, callback) => {
     User.findById({ _id: id }, callback);
 }
 
-module.exports.getUserByUname = function(Uname, callback) {
+module.exports.getUserByUname = (Uname, callback) => {
     User.findOne({ username: Uname }, callback);
 }
 
-module.exports.getUsersByStatus = function(stat, callback) {
+module.exports.getUsersByStatus = (stat, callback) => {
     if (stat == "SuperAdmin") {
         console.log("Restricted");
         return "Restricted";
@@ -54,6 +54,6 @@ module.exports.getUsersByStatus = function(stat, callback) {
     }
 }
 
-module.exports.addUser = function(user, callback) {
+module.exports.addUser = (user, callback) => {
     user.save(callback);
 }

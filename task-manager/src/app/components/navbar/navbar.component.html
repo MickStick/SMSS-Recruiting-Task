@@ -1,3 +1,28 @@
-<p>
-  navbar works!
-</p>
+<nav class="My-navbar">
+    <a class="logo-route" [routerLink] = "['/']"> Get It Done</a>
+    <div class="nav-container">
+      <ul class="nav-routes nav-routes-left">
+        <li class="route-item" [routerLinkActive]="['active']"  [routerLinkActiveOptions] = "{exact:true}">
+          <a class="route"  [routerLink]="['/']"> Home </a>
+        </li>
+      </ul>
+      <ul class="nav-routes nav-routes-right">
+        <article>
+          <li *ngIf="!authService.loggedIn()" class="route-item"  [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+            <a class="route" [routerLink]="['/login']"> Login </a>
+          </li>
+          <li *ngIf="!authService.loggedIn()" class="route-item"  [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+            <a class="route" [routerLink]="['/register']"> Register </a>
+          </li>
+          <li *ngIf="authService.loggedIn()" class="route-item" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+            <a class="route" [routerLink]="['/dashboard']"> Dashboard </a>
+          </li>
+          <li *ngIf="authService.loggedIn()" class="route-item">
+            <a class="route" href="#" (click)="onLogout()"> Logout </a>
+          </li>
+        </article>
+      </ul>
+    </div>
+    <button class="nav-toggler" (click)="navDrop()"><i class="material-icons">arrow_drop_down_circle</i></button>
+
+  </nav>

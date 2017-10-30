@@ -18,8 +18,7 @@
         "testTsconfig": "tsconfig.spec.json",
         "prefix": "app",
         "styles": [
-            "styles.css",
-            "https://fonts.googleapis.com/icon?family=Material+Icons"
+            "styles.css"
         ],
         "scripts": [],
         "environmentSource": "environments/environment.ts",

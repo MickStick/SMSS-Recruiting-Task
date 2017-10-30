@@ -1,1 +1,334 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: 'Roboto';
+}
+
+/*----------------------------------------- General ------------------------------------------top*/
+.msg {
+    font-size: 20px;
+    color: rgba(50, 50, 50, 0.9);
+    text-align: center;
+    font-family: 'Roboto';
+    width: 40%;
+    height: auto;
+    padding: 0.5mm 0mm !important;
+    display: block;
+    margin: 0.5mm auto 0.5mm auto !important;
+    border-radius: 2mm;
+}
+
+.msg-danger {
+    background-color: rgba(247, 47, 47, 0.2);
+    border: 0.5mm solid rgba(247, 47, 47, 1);
+}
+
+.msg-accept {
+    background-color: rgba(20, 247, 20, 0.2);
+    border: 0.5mm solid rgba(20, 247, 20, 1);
+}
+
+.msg-caution {
+    background-color: rgba(231, 146, 18, 0.2);
+    border: 0.5mm solid rgba(231, 146, 18, 1);
+}
+
+.btn {
+    padding: 1mm 2mm !important;
+    font-size: 80%;
+    border: none;
+    border-radius: 2mm;
+    cursor: pointer;
+}
+
+.btn-def {
+    background-color: rgba(40, 87, 126, 1);
+    transition: color 250ms, background-color 250ms;
+}
+
+.btn-def:hover {
+    background-color: rgba(64, 130, 184, 1);
+    color: rgba(240, 240, 240, 0.8);
+}
+
+.btn-def:active {
+    background-color: rgba(64, 130, 184, 0.6);
+}
+
+.btn-go {
+    background-color: rgba(53, 172, 91, 1);
+    transition: color 250ms, background-color 250ms;
+}
+
+.btn-go:hover {
+    background-color: rgba(66, 209, 111, 1);
+    color: rgba(240, 240, 240, 0.8);
+}
+
+.btn-go:active {
+    background-color: rgba(66, 209, 111, 0.6);
+}
+
+.btn-danger {
+    background-color: rgba(172, 53, 53, 1);
+    transition: color 250ms, background-color 250ms;
+}
+
+.btn-danger:hover {
+    background-color: rgba(177, 34, 34, 1);
+    color: rgba(240, 240, 240, 0.8);
+}
+
+.btn-danger:active {
+    background-color: rgba(177, 34, 34, 0.6);
+}
+/*----------------------------------------- General ---------------------------------------bottom*/
+
+
+/*----------------------------------------- Navbar -----------------------------------------top*/
+.My-navbar {
+    width: 100%;
+    height: 75px;
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(50, 50, 50, 1);
+    font-size: 28px !important;
+    position: relative;
+    top: 0%;
+    left: 0%;
+    overflow: visible !important;
+    font-family: 'Roboto';
+    z-index: 5;
+}
+
+.My-navbar .nav-toggler {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 15%;
+    right: 5mm;
+    background: none;
+    border: none;
+    border-radius: 200px;
+    display: none;
+}
+
+.My-navbar .nav-toggler:focus {
+    outline: none;
+}
+
+.My-navbar .nav-toggler i {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+a {
+    text-decoration: none;
+}
+
+.My-navbar .logo-route {
+    color: inherit;
+    width: 30%;
+    font-size: 100%;
+    font-weight: 600;
+    padding-left: 10mm !important;
+    padding-top: 5mm !important;
+    float: left;
+}
+
+.My-navbar .logo-route:hover {
+    border: none !important;
+    text-decoration: none !important;
+}
+
+.My-navbar .nav-container {
+    width: 67%;
+    height: 100%;
+    float: left;
+    display: block;
+    /* outline: red solid; */
+}
+
+.My-navbar .nav-routes-left {
+    float: left;
+    /* width: 15% !important; */
+}
+
+.My-navbar .nav-routes-left li {
+    float: left;
+}
+
+.My-navbar .nav-routes-right {
+    float: right;
+    /* width: 83% !important; */
+}
+
+.My-navbar .nav-container .nav-routes-right article {
+    float: right;
+    height: 100%;
+}
+
+.My-navbar .nav-container .nav-routes-right li {
+    float: left;
+    /*display: inline;
+    position: relative;
+    right: -90%;*/
+}
+
+.My-navbar .nav-container .nav-routes {
+    list-style-type: none;
+    /* width: 50%; */
+    height: 100%;
+    /* outline: blue solid; */
+}
+
+.My-navbar .nav-container .nav-routes .route-item {
+    font-size: 60%;
+    height: 100%;
+    width: 22mm;
+    text-align: center;
+    padding: 0mm 0.5mm !important;
+    transition: background-color 250ms;
+}
+
+.My-navbar .nav-container .nav-routes .route-item .route {
+    color: inherit !important;
+    position: relative;
+    top: 9mm !important;
+    border-bottom: 1px solid;
+    border-color: transparent;
+    transition: border-color 250ms, opacity 250ms;
+}
+
+.My-navbar .nav-container .nav-routes .route-item .route:hover {
+    border-color: rgba(255, 255, 255, 0.9);
+    opacity: 0.5;
+}
+
+.active {
+    background-color: rgba(80, 80, 80, 0.5) !important;
+}
+
+/*----------------------------------------- Navbar --------------------------------------bottom*/
+
+
+/*----------------------------------------- Home -----------------------------------------top*/
+
+/*----------------------------------------- Home --------------------------------------bottom*/
+
+
+/*----------------------------------------- Register -----------------------------------------top*/
+
+/*----------------------------------------- Register -----------------------------------------top*/
+
+/*----------------------------------------- Form Styles --------------------------------------top*/
+.default-form {
+    width: 500px;
+    height: auto;
+    display: block;
+    padding: 2mm 0mm !important;
+    margin: auto !important;
+    font-size: 28px;
+    color: rgba(50, 50, 50, 0.9);
+    font-size: 32px;
+}
+
+.default-form .form-header {
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin: 1mm auto !important;
+    font-size: 100%;
+}
+
+.default-form hr {
+    width: 60%;
+    display: block;
+    margin: auto !important;
+    border: none;
+    border-bottom: 1px solid;
+}
+
+.default-form .data-table {
+    width: 100%;
+    height: auto;
+}
+
+.default-form .data-table tr {
+    width: 100%;
+    height: auto;
+}
+
+.default-form .data-table tr td {
+    width: 100%;
+    height: auto;
+    padding: 2px !important;
+}
+
+.default-form .data-table tr td label {
+    width: 100%;
+    text-align: center;
+    display: block;
+    margin: 0.5mm auto !important;
+    font-size: 70%;
+}
+
+.default-form .data-table tr td input {
+    width: 90%;
+    height: 24px;
+    padding: 2px 4px !important;
+    display: block;
+    margin: auto !important;
+    font-size: 70%;
+}
+
+.default-form .form-btn {
+    float: right;
+    margin: 2mm 7mm 2mm 0mm !important;
+}
+
+.default-form .form-btn:focus {
+    outline: none;
+}
+
+.btn {
+    padding: 1mm 2mm !important;
+}
+/*----------------------------------------- Form Styles -----------------------------------bottom*/
+
+/*----------------------------------------- Login -----------------------------------------top*/
+
+/*----------------------------------------- Login --------------------------------------bottom*/
+
+
+/*----------------------------------------- Dashboard -----------------------------------------top*/
+.dashboard {
+    width: 85%;
+    height: auto;
+    padding: 15mm 5mm !important;
+    margin: 2mm auto 20mm auto !important;
+    position: relative;
+}
+
+.dashboard .page-title {
+    font-size: 40px;
+    text-align: center;
+    margin: 1mm 0mm !important;
+}
+
+.dashboard .dash-message {
+    font-size: 20px;
+    display: block;
+    margin: 5mm auto !important;
+    padding-left: 3mm !important;
+}
+
+.dashboard .dash-message i {
+    font-size: 20px;
+}
+
+/*----------------------------------------- Dashboard --------------------------------------bottom*/
+
+
+/*----------------------------------------- Media Queries -----------------------------------------top*/
+
+/*----------------------------------------- Media Queries --------------------------------------bottom*/
+

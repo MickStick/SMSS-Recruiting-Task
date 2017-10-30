@@ -9,13 +9,21 @@ var Task = require('../model/Tasks');
 
 
 router.get('/', (req, res, next) => {
-    Task.count({}, (err, result) => {
-        if (err) {
-            res.send("Count Error: " + err);
-        } else {
-
+    Task.getAllTasks((err, results) => {
+        if(err){
+            throw err;
+            console.log(err);
+            res.json({
+                success : false,
+                msg : "Cannot get tasks"
+            });
+        }else{
+            res.json({
+                success : true, 
+                msg : "All Tasks were found",
+                tasks : results
+            });
         }
-        res.send("Task Count: " + result);
     });
 
 });
@@ -87,21 +95,10 @@ router.delete('/delete', pp.authenticate('jwt-bearer', { session: false }), (req
     });
 });
 
-//Saving post comments
-router.post('/comment', pp.authenticate('jwt-bearer', { session: false }), (req, res, next) => {
+//Getting a single task
 
-});
-//Updating post comments
-router.post('/comment/:id', pp.authenticate('jwt-bearer', { session: false }), (req, res, next) => {
-
-});
-//Deleting post comments
-router.delete('/comment/:id', pp.authenticate('jwt-bearer', { session: false }), (req, res, next) => {
-
-});
-
-router.get('/task/:id', pp.authenticate('jwt-bearer', { session: false }), (req, res, next) => {
-    Task.getTaskByObjectId(req.params.id, (err, result) => {
+router.post('/task', pp.authenticate('jwt-bearer', { session: false }), (req, res, next) => {
+    Task.getTaskByObjectId(req.body.id, (err, result) => {
         if (err) {
             throw err;
             res.json({
@@ -116,6 +113,19 @@ router.get('/task/:id', pp.authenticate('jwt-bearer', { session: false }), (req,
             });
         }
     });
+});
+
+//Saving post comments
+router.post('/comment', pp.authenticate('jwt-bearer', { session: false }), (req, res, next) => {
+
+});
+//Updating post comments
+router.post('/comment/:id', pp.authenticate('jwt-bearer', { session: false }), (req, res, next) => {
+
+});
+//Deleting post comments
+router.delete('/comment/:id', pp.authenticate('jwt-bearer', { session: false }), (req, res, next) => {
+
 });
 
 

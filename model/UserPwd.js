@@ -20,15 +20,32 @@ var UserPwdSchema = mong.Schema({
 
 var UserPwd = module.exports = mong.model('UserPwds', UserPwdSchema);
 
-module.exports.getPwdById = function(id, callback) {
+module.exports.getPwdById = (id, callback) => {
     UserPwd.findOne({id : id }, callback);
 }
 
-module.exports.addPwd = function(pwd, callback) {
+module.exports.addPwd = (pwd, callback) => {
     pwd.save(callback);
 }
 
-module.exports.compPwd = function(pwd, hash, callback) {
+module.exports.updatePwd = (pwd, callback) => {
+    UserPwd.update(
+        {
+            id : pwd.id
+        },
+        {
+            $set : {
+                "password" : pwd.password
+            }
+        },
+        {
+            upsert: false
+        },
+        callback
+    );
+}
+
+module.exports.compPwd = (pwd, hash, callback) => {
     var Pwd = hex(pwd);
     if (Pwd == hash) {
         callback(null, true);

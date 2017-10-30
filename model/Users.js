@@ -57,3 +57,17 @@ module.exports.getUsersByStatus = (stat, callback) => {
 module.exports.addUser = (user, callback) => {
     user.save(callback);
 }
+
+module.exports.updateUser = (user, callback) => {
+    User.update(
+        {
+            _id: user._id
+        },
+        user,
+        {
+            new : true,
+            upsert : false
+        },
+        callback
+    );
+}

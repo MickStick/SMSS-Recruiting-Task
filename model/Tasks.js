@@ -46,6 +46,9 @@ var TaskSchema = mong.Schema({
 
 var Task = module.exports = mong.model('Task', TaskSchema);
 
+module.exports.getAllTasks = (callback) => {
+    Task.find({}, callback);
+}
 module.exports.getTaskByUId = (uid, callback) => {
     Task.findOne({ uid: uid }, callback);
 }

@@ -1,5 +1,77 @@
 <div *ngIf="user" class="dashboard">
     <label class="page-title">Dashboard</label>
     <p class="dash-message">Welcome to your "<i>Dashboard</i>" {{user.fname}}.</p>
+
+    <div class="Tasks">
+      <label for="tasks-header" class="header">Your Tasks</label>
+      <button class="btn" (click)="toggleAdd()"><i class="material-icons">add</i></button>
+      <div *ngIf="addNew"class="New-Task-Container">
+          <form class="default-form" (submit)="submitNewTask()">
+              <label class="form-header">New Task</label>
+              <hr>
+              <table class="data-table">
+                <tr hidden><td><input type="text" [(ngModel)] = "uid" name="uid" value="{{user.id}}"/></td></tr>
+                <tr><td><label for="title">Title</label></td></tr>
+                <tr><td><input type="text" [(ngModel)] = "title" name="title" placeholder="First Task"/></td></tr>
+                <tr><td><label for="dec">Descriptionn</label></td></tr>
+                <tr><td><textarea [(ngModel)] = "desc" name="desc" placeholder="This is my first task."></textarea></td></tr>
+                <tr><td><label for="cat">Category</label></td></tr>
+                <tr><td><input type="text" [(ngModel)] = "cat" name="cat" placeholder="New Beginnings"/></td></tr>
+                <tr><td><label for="ddate">Due Date</label></td></tr>
+                <tr><td><input type="date" [(ngModel)] = "ddate" name="ddate" /></td></tr>
+                <tr><td><label for="rdate">Recurring Date</label></td></tr>
+                <tr><td><input type="date" [(ngModel)] = "rdate" name="rdate"/></td></tr>
+                <tr><td><label for="notes">Notes</label></td></tr>
+                <tr><td><textarea [(ngModel)] = "notes" name="notes" placeholder="Well, it's just a new task."></textarea></td></tr>
+                <tr><td><label for="reminder">Email Reminder</label></td></tr>
+                <tr><td><textarea [(ngModel)] = "reminder" name="reminder" placeholder="Remember about your first task, Jon!"></textarea></td></tr>
+                <tr><td><label for="priority">Priority</label></td></tr>
+                <tr><td>
+                  <select [(ngModel)] = "priority" name="priority">
+                    <option value="5">5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
+                  </select>
+                </td></tr>
+                <tr><td><label for="subs">Sub-Tasks</label></td></tr>
+                <tr><td><textarea [(ngModel)] = "subs" name="subs" placeholder="Get to know things, Jon!"></textarea></td></tr>
+              </table>
+              <button type="submit" class="btn form-btn btn-go">Submit Task</button>
+          </form>
+      </div>
+      <div  class="Tasks-Container">
+        <div *ngIf="haveTasks()" class="Tasks" >
+            <h3>Tasks</h3>
+            <div class="Task" *ngFor="let task of tasks, let i = index">
+              <table *ngIf="!task.updateMe" class="Task-data">
+                  <tr><td>
+                    <label name="title"  >{{task.title}}</label>
+                    <button (click) = "toggleUpdate(i)" class="btn task-btn task-update-btn" id="task-up"><i class="material-icons">update</i></button>
+                    <button (click) = "deleteTask(task._id, task.title)" class="btn task-btn task-delete-btn"><i class="material-icons">delete</i></button>
+                  </td></tr>
+                  <tr><td><label name="description"  >{{task.description}}</label></td></tr>
+                  <tr><td><label name="notes"  >{{task.notes}}</label></td></tr>
+              </table>
+              <form *ngIf="task.updateMe" class="upTask" (submit) = "updateTask(task)">
+                <table>
+                    <tr><td><input name="_id"  [(ngModel)]="task._id"/></td></tr>
+                    <tr><td><input name="uid"  [(ngModel)]="task.uid" /></td></tr>
+                    <tr><td><input name="title"  [(ngModel)]="task.title" /></td></tr>
+                    <tr><td><textarea name="description"  [(ngModel)]="task.description" ></textarea></td></tr>
+                    <tr><td><textarea name="notes"  [(ngModel)]="task.notes" ></textarea></td></tr>
+                </table>      
+                <button class="btn task-btn task-update-btn" id="sub-task-up" type="submit" ><i class="material-icons">update</i></button>
+                <button (click) = "toggleUpdate(i)" class="btn task-btn task-cancel-btn" id="sub-task-up"><i class="material-icons">cancel</i></button>
+              </form>
+            </div>
+        </div>
+        <div *ngIf="!haveTasks()" class="No-Task">
+          <h3>No Tasks Found</h3>
+        </div>
+      </div>
+        
+    </div>
 </div>
   

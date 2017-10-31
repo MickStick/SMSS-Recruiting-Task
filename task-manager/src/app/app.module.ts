@@ -14,6 +14,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 import { ValidateService} from './services/validate.service';
 import { AuthenticationService} from './services/authentication.service';
+import { TaskServiceService} from './services/task-service.service';
 import { AuthGuardService } from './services/auth-guard.service';
 
 import { FlashMessagesModule} from 'angular2-flash-messages';
@@ -58,7 +59,8 @@ const appRoutes: Routes = [
   providers: [
     ValidateService,
     AuthenticationService,
-    AuthGuardService
+    AuthGuardService,
+    TaskServiceService
   ],
   bootstrap: [AppComponent]
 })

@@ -74,16 +74,22 @@ router.put('/update', pp.authenticate('jwt-bearer', { session: false }), (req, r
             throw err;
             res.json({ success: false, msg: "Task update failed!!" });
         } else {
-            res.json({
-                success: true,
-                msg: "Task \"" + req.body.title + "\" has been saved!",
-                update: result
-            });
+            if(!result.nModified){
+                console.log("Task update failed!! DB error");
+                res.json({ success: false, msg: "Task update failed!! DB error" });
+            }else{
+                res.json({
+                    success: true,
+                    msg: "Task \"" + req.body.title + "\" has been saved!",
+                    update: result
+                });
+            }
+            
         }
     });
 });
 //Deleting posts
-router.delete('/delete', pp.authenticate('jwt-bearer', { session: false }), (req, res, next) => {
+router.post('/delete', pp.authenticate('jwt-bearer', { session: false }), (req, res, next) => {
     Task.deleteTask(req.body.id, (err, result) => {
         if(err){
             throw err;
@@ -111,6 +117,24 @@ router.post('/task', pp.authenticate('jwt-bearer', { session: false }), (req, re
                 msg: "Found",
                 task: result
             });
+        }
+    });
+});
+
+router.post('/tasks', pp.authenticate('jwt-bearer', { session: false }), (req, res, next) => {
+    Task.find({uid:req.body.id}, (err, tasks) => {
+        if(err){
+            throw err;
+            console.log(err);
+            res.json({success: false, msg:"ERROR!"});
+        }else{
+            if(tasks == ""){
+                console.log("No Tasks");
+                res.json({success: false, msg:"No Tasks"});   
+            }else{
+                res.json({success: true, msg:"Tasks Found!",tasks:tasks});
+            }
+            console.log("Tasks: "+tasks);
         }
     });
 });

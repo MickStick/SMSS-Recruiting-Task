@@ -280,6 +280,25 @@ a {
     font-size: 70%;
 }
 
+.default-form .data-table tr td textarea {
+    width: 90%;
+    height: 100px;
+    padding: 2px 4px !important;
+    display: block;
+    margin: auto !important;
+    font-size: 70%;
+    resize: none;
+}
+
+.default-form .data-table tr td select {
+    width: 92%;
+    height: 35px;
+    padding: 2px 4px !important;
+    display: block;
+    margin: auto !important;
+    font-size: 70%;
+}
+
 .default-form .form-btn {
     float: right;
     margin: 2mm 7mm 2mm 0mm !important;

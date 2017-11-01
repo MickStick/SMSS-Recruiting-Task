@@ -34,6 +34,13 @@ export class DashboardComponent implements OnInit {
   ) { 
       this.addNew = false;
       this.getTasks();
+      $(document).ready(function(){
+        (function(){
+          
+        })();
+        
+      });
+      
   }
 
   ngOnInit() {

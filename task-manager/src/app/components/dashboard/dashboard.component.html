@@ -1,3 +1,4 @@
+
 <div *ngIf="user" class="dashboard">
     <label class="page-title">Dashboard</label>
     <p class="dash-message">Welcome to your "<i>Dashboard</i>" {{user.fname}}.</p>
@@ -46,23 +47,46 @@
         <div *ngIf="haveTasks()" class="Tasks" >
             <div class="Task" *ngFor="let task of tasks, let i = index">
               <table *ngIf="!task.updateMe" class="Task-data" id="task-title">
-                  <tr> <td (click)="showTaskInfo($event)" id="title"><label>Title: </label></td><td>
+                  <tr> <td id="title"><label>Title: </label></td><td>
+                    <script>
+                      alert("We deh yah");  
+                    </script>
                     <label name="title"  >{{task.title}}</label>
                     <button (click) = "toggleUpdate(i)" class="btn task-btn task-update-btn" id="task-up"><i class="material-icons">update</i></button>
                     <button (click) = "deleteTask(task._id, task.title)" class="btn task-btn task-delete-btn"><i class="material-icons">delete</i></button>
                   </td></tr>
 
               </table>
-              <table hidden class="Task-data" id="task-info">
+              <table class="Task-data" id="task-info">
                   <tr><td><label>Description: </label></td><td><pre   name="description"  >{{task.description}}</pre></td></tr>
+                  <tr><td><label>Category: </label></td><td><label name="cat"  >{{task.category}}</label></td></tr>
+                  <tr><td><label>Due Date: </label></td><td><label name="ddate"  >{{task.ddate}}</label></td></tr>
+                  <tr><td><label>Recurring Date: </label></td><td><label name="rdate"  >{{task.rdate}}</label></td></tr>
                   <tr><td><label>Notes: </label></td><td><pre name="notes"  >{{task.notes}}</pre></td></tr>
+                  <tr><td><label>Email Reminder: </label></td><td><pre name="rem"  >{{task.email_reminder}}</pre></td></tr>
+                  <tr><td><label>Priority: </label></td><td><label name="priority"  >{{task.priority}}</label></td></tr>
+                  <tr><td><label>Sub Tasks: </label></td><td><pre name="subs"  >{{task.sub_tasks}}</pre></td></tr>
               </table>
               <form *ngIf="task.updateMe" class="upTask" (submit) = "updateTask(task)">
                 <table>
-                    <tr><td><input name="_id"  [(ngModel)]="task._id"/></td></tr>
-                    <tr><td><input name="uid"  [(ngModel)]="task.uid" /></td></tr>
+                    <tr hidden><td><input name="_id"  [(ngModel)]="task._id"/></td></tr>
+                    <tr hidden><td><input name="uid"  [(ngModel)]="task.uid" /></td></tr>
                     <tr><td><input name="title"  [(ngModel)]="task.title" /></td></tr>
                     <tr><td><textarea name="description"  [(ngModel)]="task.description" ></textarea></td></tr>
+                    <tr><td><input name="category"  [(ngModel)]="task.category" /></td></tr>
+                    <tr><td><input type="date" [(ngModel)] = "ddate" name="ddate" /></td></tr>
+                    <td><input type="date" [(ngModel)] = "rdate" name="rdate"/></td>
+                    <tr><td><textarea name="notes"  [(ngModel)]="task.notes" ></textarea></td></tr>
+                    <tr><td><textarea name="email_reminder"  [(ngModel)]="task.email_reminder" ></textarea></td></tr>
+                    <tr><td>
+                        <select [(ngModel)] = "priority" name="priority">
+                          <option value="5">5</option>
+                          <option value="4">4</option>
+                          <option value="3">3</option>
+                          <option value="2">2</option>
+                          <option value="1">1</option>
+                        </select>
+                      </td></tr>
                     <tr><td><textarea name="notes"  [(ngModel)]="task.notes" ></textarea></td></tr>
                 </table>      
                 <button class="btn task-btn task-update-btn" id="sub-task-up" type="submit" ><i class="material-icons">update</i></button>

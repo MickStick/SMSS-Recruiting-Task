@@ -1,4 +1,29 @@
-<div class="Home-Container">
-  <h1>This is Home</h1>
-  <i class="material-icons">add</i>
-</div>
+<div class="HomeContainer">
+    <div class="top-sect">
+      <h1>Get It Done</h1>
+      <label>Welcome to Get it Done, the fastest Task Manager on the net.</label>
+      <div class="btn-container">
+        <button *ngIf="!authService.loggedIn()" class="route-btn btn-def"><a class="btn-route" [routerLink] = "['/register']">Sign Up!</a></button>
+        <button *ngIf="!authService.loggedIn()" class="route-btn btn-go"><a class="btn-route" [routerLink] = "['/login']">Login</a></button>
+      </div>
+    </div>
+  
+    <div class="third-container">
+      <div class="third-wrap">
+          <div class="one-third">
+            <h4 class="sect-title one-third-title">Express Backend<hr/></h4>
+            <p>A rock solid NodeJS/Express server using Mongoose to organize the models and query the database.</p>
+          </div>
+          <div class="one-third">
+            <h4 class="sect-title one-third-title"> Angular-CLI <hr/></h4>
+            <p>Angular-CLI to generate companents, services and more, Local dev server and easy compilation. </p>
+          </div>
+          <div class="one-third">
+            <h4 class="sect-title one-third-title"> JWT Token <hr/></h4>
+            <p>Full featured authentication using JSON Web Tokens. Login and store user data</p>
+          </div>
+        </div>
+      </div>
+  
+  </div>
+  

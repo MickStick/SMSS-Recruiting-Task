@@ -89,7 +89,7 @@ router.put('/update', pp.authenticate('jwt-bearer', { session: false }), (req, r
     });
 });
 //Deleting posts
-router.post('/delete', pp.authenticate('jwt-bearer', { session: false }), (req, res, next) => {
+router.post  ('/delete', pp.authenticate('jwt-bearer', { session: false }), (req, res, next) => {
     Task.deleteTask(req.body.id, (err, result) => {
         if(err){
             throw err;

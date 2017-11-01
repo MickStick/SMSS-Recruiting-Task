@@ -34,8 +34,6 @@ export class DashboardComponent implements OnInit {
   ) { 
       this.addNew = false;
       this.getTasks();
-
-      $('#task-up').css({"background":"pink"});
   }
 
   ngOnInit() {
@@ -62,9 +60,22 @@ export class DashboardComponent implements OnInit {
       return false;
     }
   }
+
   toggleAdd(){
     this.addNew = !this.addNew;
     console.log(this.addNew);
+  }
+
+  showTaskInfo = (event) => {
+    // console.log(event);
+    // console.log($('#'+event.target.id+'').parent().parent().parent().parent().children('#task-info'));
+    // let parent = $('#'+event.target.id+'').parent().parent().parent().parent();
+    // parent.children('#task-info').animate({height:'toggle'}, 250);
+    var target = event.currentTarget;
+    
+      var pElement = target.parentElement.parentElement.parentElement.parentElement;
+      var pclassAttr = pElement.attributes.class;
+      console.log(pclassAttr);
   }
 
 
@@ -72,15 +83,26 @@ export class DashboardComponent implements OnInit {
     const newTask = {
       uid:this.uid,
       title:this.title,
-      desc:this.desc,
+      desc:this.desc + "\n",
       cat:this.cat,
       ddate:this.ddate,
       rdate:this.rdate,
-      notes:this.notes,
-      reminder:this.reminder,
+      notes:this.notes + "\n",
+      reminder:this.reminder + "\n",
       priority:this.priority,
-      subs:this.subs
+      subs:this.subs + "\n"
     }
+    
+    this.uid = null;
+    this.title = null;
+    this.desc = null;
+    this.cat = null;
+    this.ddate = null;
+    this.rdate = null;
+    this.notes = null;
+    this.reminder = null;
+    this.priority = null;
+    this.subs = null;
 
     this.taskService.addTask(newTask).subscribe(data => {
       if (data.success) {
@@ -89,6 +111,7 @@ export class DashboardComponent implements OnInit {
         this.FlashMsg.show( newTask.title + ' has been added', {cssClass: 'msg-accept msg', timeout: 1000});
       }else {
         this.FlashMsg.show(data.msg, {cssClass: 'msg-danger msg', timeout: 1000});
+        this.toggleAdd();
       }
     });
   }
@@ -98,14 +121,14 @@ export class DashboardComponent implements OnInit {
       _id:newTask._id,
       uid:newTask.uid,
       title:newTask.title,
-      desc:newTask.desc,
+      desc:newTask.desc + "\n",
       cat:newTask.cat,
       ddate:newTask.ddate,
       rdate:newTask.rdate,
-      notes:newTask.notes,
-      reminder:newTask.reminder,
+      notes:newTask.notes + "\n",
+      reminder:newTask.reminder + "\n",
       priority:newTask.priority,
-      subs:newTask.subs
+      subs:newTask.subs + "\n"
     }
 
     this.taskService.updateTask(upTask).subscribe(data => {
@@ -136,14 +159,19 @@ export class DashboardComponent implements OnInit {
 
   getTasks = () =>{
     let user = this.authService.getUserData();
+
     this.taskService.getTasks(user).subscribe(data => {
       if (data.success) {
         this.tasks = data.tasks;
         for(let x = 0; x < this.tasks.length; x++){
           this.tasks[x].updateMe = false;
+          //this.tasks[x].description = this.tasks[x].description.split('\n',this.tasks[x].description.length);
+          // console.log("description: "+this.tasks[x].description);
+          console.log(this.tasks);
         }
       }else {
         this.FlashMsg.show(data.msg, {cssClass: 'msg-danger msg', timeout: 1000});
+        this.tasks = null;
       }
       console.log(data.msg);
     });

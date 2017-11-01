@@ -211,7 +211,219 @@ a {
 
 
 /*----------------------------------------- Home -----------------------------------------top*/
+* {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: 'Roboto';
+}
 
+html {
+    position: relative;
+    top: 0%;
+    left: 0%;
+}
+
+.HomeContainer {
+    width: 100%;
+    height: auto;
+    padding: 5mm 0mm !important;
+    color: rgba(50, 50, 50, 0.9);
+}
+
+.HomeContainer>.top-sect {
+    width: 85%;
+    height: auto;
+    padding: 15mm 5mm !important;
+    margin: 2mm auto 20mm auto !important;
+    background-color: rgba(253, 232, 213, 0.3);
+    position: relative;
+}
+
+.HomeContainer .top-sect h1 {
+    font-size: 40px;
+    text-align: center;
+    margin: 1mm 0mm !important;
+}
+
+.HomeContainer .top-sect label {
+    font-size: 24px;
+    display: block;
+    margin: 2mm auto !important;
+    text-align: center;
+}
+
+.btn-container {
+    width: 160px;
+    height: auto;
+    margin: 4mm auto 0mm auto !important;
+}
+
+.HomeContainer .top-sect .btn-container .route-btn {
+    padding: 2mm !important;
+    border: none;
+    border-radius: 1.5mm;
+    margin-right: 1mm;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.HomeContainer .top-sect .btn-container .route-btn:focus {
+    outline: none;
+}
+
+.HomeContainer .top-sect .btn-container .route-btn .btn-route {
+    color: inherit;
+    text-decoration: none;
+    margin: auto;
+}
+
+.HomeContainer .top-sect .btn-container .route-btn .btn-route:hover {
+    color: rgba(240, 240, 240, 0.8);
+}
+
+.HomeContainer .top-sect .btn-container .route-btn .btn-route:focus {
+    outline: none;
+}
+
+
+/*.btn-def {
+    background-color: rgba(45, 54, 92, 1);
+    transition: color 250ms, background-color 250ms;
+}
+
+.btn-def:hover {
+    background-color: rgba(69, 82, 134, 1);
+    color: rgba(240, 240, 240, 0.8);
+}
+
+.btn-def:active {
+    background-color: rgba(69, 82, 134, 0.6);
+}
+
+.btn-go {
+    background-color: rgba(53, 172, 91, 1);
+    transition: color 250ms, background-color 250ms;
+}
+
+.btn-go:hover {
+    background-color: rgba(66, 209, 111, 1);
+    color: rgba(240, 240, 240, 0.8);
+}
+
+.btn-go:active {
+    background-color: rgba(66, 209, 111, 0.6);
+}*/
+
+.sect-title {
+    text-align: center;
+    font-weight: 800;
+    margin: 2% 0% 1% 0%;
+    font-size: 26px;
+}
+
+.sect-title hr {
+    margin: 0mm auto 4mm auto !important;
+    width: 50%;
+}
+
+.sect-title hr:first-of-type {
+    width: 70%;
+}
+
+.HomeContainer .third-container {
+    width: 100%;
+    height: auto;
+    background-color: ghost-white;
+}
+
+.HomeContainer .third-container .third-wrap {
+    margin: auto !important;
+    width: 90%;
+    margin-bottom: 10px;
+    overflow: hidden;
+    font-size: 22px;
+}
+
+.HomeContainer .third-container .one-third {
+    float: left;
+    width: 30%;
+    padding-bottom: 30px;
+    height: auto;
+    margin: 20px 12px !important;
+}
+
+.HomeContainer .third-container .one-third p {
+    margin: auto;
+    text-align: center;
+    width: 96%;
+    font-size: 80%;
+}
+
+@media screen and (max-width: 1040px) {
+    .HomeContainer .third-container .one-third {
+        margin: 0.35% !important;
+    }
+    .HomeContainer .third-container .one-third p {
+        font-size: 75%;
+    }
+}
+
+@media screen and (max-width: 790px) {
+    .HomeContainer .third-container .one-third p {
+        font-size: 90%;
+    }
+    .HomeContainer .third-container .one-third {
+        width: 46%;
+    }
+}
+
+@media screen and (max-width: 790px) {
+    .HomeContainer .third-container .one-third p {
+        font-size: 90%;
+    }
+    .HomeContainer .third-container .one-third {
+        width: 46%;
+    }
+}
+
+@media screen and (max-width: 415px) {
+    .HomeContainer .top-sect {
+        width: 100%;
+        padding: 2mm 0mm 4mm 0mm !important;
+        margin-bottom: 4mm !important;
+    }
+    .HomeContainer .top-sect>label {
+        margin-top: 4mm !important;
+        width: 80%;
+    }
+    .HomeContainer .third-container .one-third p {
+        font-size: 80%;
+    }
+    .HomeContainer .third-container .one-third {
+        width: 98%;
+        margin: 2mm auto !important;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .HomeContainer .top-sect>h1 {
+        font-size: 36px;
+    }
+    .HomeContainer .top-sect>label {
+        font-size: 21px;
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    .HomeContainer .top-sect>h1 {
+        font-size: 32px;
+    }
+    .HomeContainer .top-sect>label {
+        font-size: 20px;
+    }
+}
 /*----------------------------------------- Home --------------------------------------bottom*/
 
 
@@ -338,6 +550,159 @@ a {
     display: block;
     margin: 5mm auto !important;
     padding-left: 3mm !important;
+}
+
+.newTask-form{
+    width: 700px;
+    margin-left: 0 !important;
+    padding-bottom: 15mm !important;
+    border-collapse: separate;
+    border-spacing: 5mm;
+    position: relative;
+    top: 5mm;
+}
+
+.btn:active{
+    outline: none;
+}
+
+.newTask-form tr{
+    margin-bottom: 20mm !important;
+}
+
+.newTask-form hr{
+    display: block;
+    margin-bottom: 2mm !important;
+}
+
+.newTask-form tr td{
+    width: 80%;
+    font-size: 24px;
+}
+
+.newTask-form tr td:first-of-type{
+    width: 20%;
+}
+
+.newTask-form tr label{
+    text-align: left !important;
+}
+
+.newTask-form .btn-go{
+    padding: 1mm !important;
+    font-size: 20px;
+    margin-right: 12mm !important;
+}
+
+.Task {
+    margin-bottom: 5mm !important;
+    width: 600px;
+}
+
+.No-Task{
+    display: block;
+    margin-top: 10mm !important;
+}
+
+.Tasks .header {
+    display: inline !important;
+    padding: 0mm 2mm 0mm 10mm !important;
+    font-size: 26px !important;
+    position: relative;
+    top:5mm;
+}
+
+#task-title {
+    margin-top: 12mm !important;
+    transition: background-color 250ms;
+    cursor: pointer;
+}
+
+#task-title tr td{
+    cursor: pointer;
+}
+
+#task-title tr {
+    transition: background-color 250ms;
+}
+
+#task-title tr td:first-of-type:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+#task-title tr td label{
+    cursor: pointer;
+}
+
+.Task-data {
+    padding-top: 5mm !important;
+    margin: auto !important;
+    width: 80%;
+    /*border: 1px solid;*/
+}
+
+.Task-data tr {
+    width: 100%;
+}
+
+.Task-data tr td:first-of-type{
+    vertical-align: top;
+}
+
+.Task-data tr td{
+    width: 49%;
+    text-align: left;
+    /*outline: blue solid;*/
+}
+
+#task-info tr td {
+    display: inline-block;
+}
+
+#task-info tr{
+    display: inline-block;
+    margin-bottom: 3mm !important;
+    /*outline: red solid;*/
+}
+
+.Task-data tr td pre{
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    width: 215;
+    margin-left: 5mm !important;
+}
+
+.Tasks .add-btn, .Tasks .Task-data .btn, .Tasks .upTask .btn{
+    padding: 0 !important;
+    font-size: 60%;
+    border-radius: 1mm !important;
+}
+
+.Tasks .add-btn{
+    line-height: 10px;
+    position: relative;
+    top: 5.75mm !important;
+}
+
+.Tasks .add-btn, .Tasks .Task-data .btn i, .Tasks .upTask .btn i{
+    font-size: 18px;
+}
+
+.task-btn{
+    background: transparent;
+    background-color: transparent;
+}
+
+.task-delete-btn i {
+    color: rgba(250,0,0,0.5);
+    transition: color 250ms;
+}
+
+.task-delete-btn i:hover{
+    color: rgba(255,5,5,1);
 }
 
 .dashboard .dash-message i {

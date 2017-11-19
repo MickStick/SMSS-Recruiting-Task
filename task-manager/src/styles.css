@@ -33,13 +33,13 @@
     border: 0.5mm solid rgba(231, 146, 18, 1);
 }
 
-.btn {
+/* .btn {
     padding: 1mm 2mm !important;
     font-size: 80%;
     border: none;
     border-radius: 2mm;
     cursor: pointer;
-}
+} */
 
 .btn-def {
     background-color: rgba(40, 87, 126, 1);
@@ -86,7 +86,7 @@
 
 
 /*----------------------------------------- Navbar -----------------------------------------top*/
-.My-navbar {
+/* .My-navbar {
     width: 100%;
     height: 75px;
     color: rgba(255, 255, 255, 0.9);
@@ -144,12 +144,12 @@ a {
     height: 100%;
     float: left;
     display: block;
-    /* outline: red solid; */
+    /* outline: red solid; 
 }
 
 .My-navbar .nav-routes-left {
     float: left;
-    /* width: 15% !important; */
+    /* width: 15% !important; 
 }
 
 .My-navbar .nav-routes-left li {
@@ -158,7 +158,7 @@ a {
 
 .My-navbar .nav-routes-right {
     float: right;
-    /* width: 83% !important; */
+    /* width: 83% !important; 
 }
 
 .My-navbar .nav-container .nav-routes-right article {
@@ -170,17 +170,17 @@ a {
     float: left;
     /*display: inline;
     position: relative;
-    right: -90%;*/
+    right: -90%;
 }
 
 .My-navbar .nav-container .nav-routes {
     list-style-type: none;
-    /* width: 50%; */
+    /* width: 50%; 
     height: 100%;
-    /* outline: blue solid; */
+    /* outline: blue solid; 
 }
 
-.My-navbar .nav-container .nav-routes .route-item {
+/* .My-navbar .nav-container .nav-routes .route-item {
     font-size: 60%;
     height: 100%;
     width: 22mm;
@@ -201,7 +201,7 @@ a {
 .My-navbar .nav-container .nav-routes .route-item .route:hover {
     border-color: rgba(255, 255, 255, 0.9);
     opacity: 0.5;
-}
+}  */
 
 .active {
     background-color: rgba(80, 80, 80, 0.5) !important;

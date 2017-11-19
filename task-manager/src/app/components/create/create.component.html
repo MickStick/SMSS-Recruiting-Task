@@ -1,0 +1,51 @@
+<div class="container grey lighten-5">
+  <div class="container">
+    <form (submit) = "submitTask()">
+      <h2>New Task</h2>
+      <div class="input-field" hidden>
+        <input type="text" [(ngModel)] = "uid" name="uid" value="{{user.id}}"/>
+      </div>
+      <div class="input-field">
+          <input type="text" [(ngModel)] = "title" name="title"/>
+          <label for="title">Title</label>
+      </div>
+      <div class="input-field">
+          <textarea [(ngModel)] = "desc" name="desc" class="materialize-textarea" id="#textarea1"></textarea>
+          <label for="desc">Description</label>
+      </div>
+      <div class="input-field">
+          <input type="text" [(ngModel)] = "cat" name="cat"/>
+          <label for="cat">Category</label>
+      </div>
+      <div class="input-field">
+          <input type="date" [(ngModel)] = "ddate" name="ddate" class="datepicker" placeholder="Due Date"/>
+      </div>
+      <div class="input-field">
+          <input type="date" [(ngModel)] = "rdate" name="rdate" class="datepicker" placeholder="Recurring Date"/>
+      </div>
+      <div class="input-field">
+          <textarea [(ngModel)] = "notes" name="notes" class="materialize-textarea" id="#textarea2"></textarea>
+          <label for="notes">Notes</label>
+      </div>
+      <div class="input-field">
+          <textarea [(ngModel)] = "reminder" name="reminder" class="materialize-textarea" id="#textarea3"></textarea>
+          <label for="reminder">Email Reminder</label>
+      </div>
+      <div class="input-field">
+          <select [(ngModel)] = "priority" name="priority">
+              <option value="5">5</option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+            </select>
+          <label for="title">Title</label>
+      </div>
+      <div class="input-field">
+          <textarea [(ngModel)] = "subs" name="subs" class="materialize-textarea" id="#textarea4"></textarea>
+          <label for="subs">Sub Tasks</label>
+      </div>
+      <button class="btn blue darken-1 right">Submit</button>
+    </form>
+  </div>
+</div>

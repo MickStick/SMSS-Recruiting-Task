@@ -86,42 +86,7 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  submitNewTask = () => {
-    const newTask = {
-      uid:this.uid,
-      title:this.title,
-      desc:this.desc + "\n",
-      cat:this.cat,
-      ddate:this.ddate,
-      rdate:this.rdate,
-      notes:this.notes + "\n",
-      reminder:this.reminder + "\n",
-      priority:this.priority,
-      subs:this.subs + "\n"
-    }
-    
-    this.uid = null;
-    this.title = null;
-    this.desc = null;
-    this.cat = null;
-    this.ddate = null;
-    this.rdate = null;
-    this.notes = null;
-    this.reminder = null;
-    this.priority = null;
-    this.subs = null;
-
-    this.taskService.addTask(newTask).subscribe(data => {
-      if (data.success) {
-        this.getTasks();
-        this.toggleAdd();
-        this.FlashMsg.show( newTask.title + ' has been added', {cssClass: 'msg-accept msg', timeout: 1000});
-      }else {
-        this.FlashMsg.show(data.msg, {cssClass: 'msg-danger msg', timeout: 1000});
-        this.toggleAdd();
-      }
-    });
-  }
+  
 
   updateTask = (newTask) =>{
     const upTask = {

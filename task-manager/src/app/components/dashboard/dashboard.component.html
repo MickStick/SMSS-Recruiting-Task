@@ -6,43 +6,6 @@
     <div class="Tasks">
       <label for="tasks-header" class="header dash-message">Your Tasks</label>
       <button class="btn add-btn" (click)="toggleAdd()"><i class="material-icons">add</i></button>
-      <div *ngIf="addNew"class="New-Task-Container">
-          <form class="default-form newTask-form" (submit)="submitNewTask()">
-              <label class="form-header">New Task</label>
-              <hr>
-              <table class="data-table" cellspacing="20">
-                <tr hidden><td><input type="text" [(ngModel)] = "uid" name="uid" value="{{user.id}}"/></td></tr>
-                <!-- <tr></tr> -->
-                <tr><td><label for="title">Title</label></td><td><input type="text" [(ngModel)] = "title" name="title" placeholder="First Task"/></td></tr>
-                <!-- <tr></tr> -->
-                <tr><td><label for="dec">Descriptionn</label></td><td><textarea [(ngModel)] = "desc" name="desc" placeholder="This is my first task."></textarea></td></tr>
-                <!-- <tr></tr> -->
-                <tr><td><label for="cat">Category</label></td><td><input type="text" [(ngModel)] = "cat" name="cat" placeholder="New Beginnings"/></td></tr>
-                <!-- <tr></tr> -->
-                <tr><td><label for="ddate">Due Date</label></td><td><input type="date" [(ngModel)] = "ddate" name="ddate" /></td></tr>
-                <!-- <tr></tr> -->
-                <tr><td><label for="rdate">Recurring Date</label></td><td><input type="date" [(ngModel)] = "rdate" name="rdate"/></td></tr>
-                <!-- <tr></tr> -->
-                <tr><td><label for="notes">Notes</label></td><td><textarea [(ngModel)] = "notes" name="notes" placeholder="Well, it's just a new task."></textarea></td></tr>
-                <!-- <tr></tr> -->
-                <tr><td><label for="reminder">Email Reminder</label></td><td><textarea [(ngModel)] = "reminder" name="reminder" placeholder="Remember about your first task, Jon!"></textarea></td></tr>
-                <!-- <tr></tr> -->
-                <tr><td><label for="priority">Priority</label></td>
-                  <td>
-                  <select [(ngModel)] = "priority" name="priority">
-                    <option value="5">5</option>
-                    <option value="4">4</option>
-                    <option value="3">3</option>
-                    <option value="2">2</option>
-                    <option value="1">1</option>
-                  </select>
-                </td></tr>
-                <!-- <tr></tr> -->
-                <tr><td><label for="subs">Sub-Tasks</label></td><td><textarea [(ngModel)] = "subs" name="subs" placeholder="Get to know things, Jon!"></textarea></td></tr>
-              </table>
-              <button type="submit" class="btn form-btn btn-go">Submit Task</button>
-          </form>
-      </div>
       <div  class="Tasks-Container">
         <div *ngIf="haveTasks()" class="Tasks" >
             <div class="Task" *ngFor="let task of tasks, let i = index">

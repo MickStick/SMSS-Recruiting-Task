@@ -11,6 +11,10 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { EditComponent } from './components/edit/edit.component';
+import { CreateComponent } from './components/create/create.component';
+import { UpdateComponent } from './components/update/update.component';
+import { ViewComponent } from './components/view/view.component';
 
 import { ValidateService} from './services/validate.service';
 import { AuthenticationService} from './services/authentication.service';
@@ -37,7 +41,19 @@ const appRoutes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent, canActivate: [AuthGuardService]
-  }
+  },
+  {
+    path: 'create',
+    component: CreateComponent, canActivate: [AuthGuardService]
+  },
+  {
+    path: 'update',
+    component: UpdateComponent, canActivate: [AuthGuardService]
+  },
+  {
+    path: 'edit',
+    component: EditComponent, canActivate: [AuthGuardService]
+  }  
 ];
 
 @NgModule({
@@ -47,7 +63,11 @@ const appRoutes: Routes = [
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    EditComponent,
+    CreateComponent,
+    UpdateComponent,
+    ViewComponent
   ],
   imports: [
     BrowserModule,

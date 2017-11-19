@@ -8,19 +8,33 @@
   <meta name="author" content="Mikhail Rene Shaw">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,minimum-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
   
-
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+            
 </head>
 <body>
   <app-root></app-root>
 </body>
 <script>
-   console.log($('.Task-data').children().length);
-    
-  </script>
+  $(".button-collapse").sideNav();
+  
+  $('#textarea1').trigger('autoresize');
+  $('#textarea2').trigger('autoresize');
+  $('#textarea3').trigger('autoresize');
+  $('#textarea4').trigger('autoresize');
+
+  $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false // Close upon selecting a date,
+  });
+
+  $('select').material_select();
+</script>
 </html>
